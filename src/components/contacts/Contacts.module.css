@@ -1,0 +1,38 @@
+.contacts {
+  width: 480px;
+}
+
+.contacts__item {
+  margin-left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact__text {
+  font-weight: 600;
+  color: crimson;
+}
+
+.contact__part {
+  display: inline-block;
+  margin-right: 20px; /* width: calc(100% / 2); */
+}
+
+.btn {
+  width: 130px;
+  height: 30px;
+  background-color: #fff;
+  font-weight: bold;
+  border: 2px solid crimson;
+  border-radius: 5px;
+  color: crimson;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover,
+.btn:focus {
+  color: white;
+  background-color: crimson;
+  cursor: pointer;
+}

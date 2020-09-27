@@ -1,0 +1,53 @@
+.userBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  padding: 15px;
+}
+
+.btn {
+  width: 90px;
+  height: 30px;
+  background-color: #fff;
+  font-weight: bold;
+  background-color: blueviolet;
+  border: 2px solid blue;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover,
+.btn:focus {
+  color: white;
+  background-color: crimson;
+  cursor: pointer;
+}
+
+.text {
+  font-weight: 600;
+  color: crimson;
+}
+
+.contactsLink {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  color: crimson;
+}
+
+.contactsLink:hover {
+  transform: scale(1.2);
+}
+
+.contactsLinkActive {
+  text-decoration: none;
+  font-weight: 600;
+  color: blueviolet;
+  border-width: 0 0 2px;
+  border-color: blueviolet;
+  border-style: solid;
+}

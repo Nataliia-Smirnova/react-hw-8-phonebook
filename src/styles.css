@@ -1,0 +1,134 @@
+body {
+  background-image: url(./images/bg6.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+#root {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 570px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#content {
+  padding: 20px 30px;
+}
+
+#title {
+  text-align: center;
+  color: crimson;
+  font-style: italic;
+}
+
+#text {
+  text-align: center;
+  color: crimson;
+  font-style: italic;
+}
+
+.filter-enter {
+  opacity: 0;
+  scale: 0.1;
+}
+
+.filter-enter-active {
+  opacity: 1;
+  scale: 1;
+  transition: all 500ms linear;
+}
+
+.filter-exit {
+  opacity: 1;
+  scale: 1;
+}
+
+.filter-exit-active {
+  opacity: 0;
+  scale: 0.1;
+  transition: all 500ms linear;
+}
+
+.title-appear,
+.contactItem-fade-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.title-appear-active,
+.contactItem-fade-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms linear;
+}
+
+.contactItem-fade-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contactItem-fade-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 500ms linear;
+}
+
+/* .title-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.title-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 750ms linear;
+} */
+.alert-enter,
+.info-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.alert-enter-active,
+.info-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms linear;
+}
+
+.alert-exit,
+.info-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.alert-exit-active,
+.info-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 500ms linear;
+}
+
+/* .filter-appear,
+.contactItem-appear {
+  opacity: 0;
+}
+
+.filter-appear-active,
+.contactItem-appear-active {
+  opacity: 1;
+  transition: opacity 500ms linear;
+} */
+
+.filter-appear {
+  opacity: 0;
+  scale: 0.1;
+}
+
+.filter-appear-active {
+  opacity: 1;
+  scale: 1;
+  transition: all 500ms linear;
+}
