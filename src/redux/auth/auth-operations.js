@@ -25,21 +25,35 @@ const token = {
   },
 };
 
-const register = registerData => dispatch => {
+const register = registerData => async dispatch => {
   dispatch(registerRequest());
 
-  axios
-    .post('/users/signup', registerData)
-    .then(res => {
-      token.set(res.data.token);
+  try {
+    const response = await axios.post('/users/signup', registerData);
+    dispatch(registerSuccess(response.data));
+  } catch (error) {
+    dispatch(registerError(error.message));
+  }
 
-      dispatch(registerSuccess(res.data));
-    })
-    .catch(err => dispatch(registerError(err.message)));
+  // axios
+  //   .post('/users/signup', registerData)
+  //   .then(res => {
+  //     token.set(res.data.token);
+
+  //     dispatch(registerSuccess(res.data));
+  //   })
+  //   .catch(err => dispatch(registerError(err.message)));
 };
 
 const logIn = loginData => dispatch => {
   dispatch(loginRequest());
+
+  // try {
+  //   const response = await axios.post('/users/login', loginData);
+  //   dispatch(loginSuccess(response.data));
+  // } catch (error) {
+  //   dispatch(loginError(error.message));
+  // }
 
   axios
     .post('/users/login', loginData)
@@ -50,19 +64,26 @@ const logIn = loginData => dispatch => {
     .catch(err => dispatch(loginError(err.message)));
 };
 
-const logOut = () => dispatch => {
+const logOut = () => async dispatch => {
   dispatch(logoutRequest());
 
-  axios
-    .post('/users/logout')
-    .then(response => {
-      token.unset();
-      dispatch(logoutSuccess());
-    })
-    .catch(error => dispatch(logoutError(error)));
+  try {
+    const response = await axios.post('/users/logout');
+    dispatch(logoutSuccess());
+  } catch (error) {
+    dispatch(logoutError(error.message));
+  }
+
+  // axios
+  //   .post('/users/logout')
+  //   .then(response => {
+  //     token.unset();
+  //     dispatch(logoutSuccess());
+  //   })
+  //   .catch(error => dispatch(logoutError(error)));
 };
 
-const getCurrentUser = () => (dispatch, getState) => {
+const getCurrentUser = () => async (dispatch, getState) => {
   const {
     auth: { token: lokalToken },
   } = getState();
@@ -73,12 +94,19 @@ const getCurrentUser = () => (dispatch, getState) => {
 
   dispatch(getCurrentUserRequest());
 
-  axios
-    .get('/users/current')
-    .then(response => {
-      dispatch(getCurrentUserSuccess(response.data));
-    })
-    .catch(error => dispatch(getCurrentUserError(error)));
+  try {
+    const response = await axios.get('/users/current');
+    dispatch(getCurrentUserSuccess(response.data));
+  } catch (error) {
+    dispatch(getCurrentUserError(error.message));
+  }
+
+  // axios
+  //   .get('/users/current')
+  //   .then(response => {
+  //     dispatch(getCurrentUserSuccess(response.data));
+  //   })
+  //   .catch(error => dispatch(getCurrentUserError(error)));
 };
 
 export default { register, logIn, logOut, getCurrentUser };
